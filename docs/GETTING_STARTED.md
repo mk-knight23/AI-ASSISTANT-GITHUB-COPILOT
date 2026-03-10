@@ -1,136 +1,166 @@
-# Getting Started with Antigravity Awesome Skills (V4)
+# Getting Started with GitHub Copilot
 
-**New here? This guide will help you supercharge your AI Agent in 5 minutes.**
+## What is GitHub Copilot?
 
----
+GitHub Copilot is Microsoft/GitHub's AI pair programmer. Since February 2026 it includes full Agent Mode in VS Code 1.110+.
 
-## 🤔 What Are "Skills"?
-
-AI Agents (like **Claude Code**, **Gemini**, **Cursor**) are smart, but they lack specific knowledge about your tools.
-**Skills** are specialized instruction manuals (markdown files) that teach your AI how to perform specific tasks perfectly, every time.
-
-**Analogy:** Your AI is a brilliant intern. **Skills** are the SOPs (Standard Operating Procedures) that make them a Senior Engineer.
+**Pricing:** Free (2,000 completions/mo) | $10/mo Individual | $19/mo Business | $39/mo Enterprise
 
 ---
 
-## ⚡️ Quick Start: The "Starter Packs"
+## Install
 
-Don't panic about the 700+ skills. You don't need them all at once.
-We have curated **Starter Packs** to get you running immediately.
-
-You **install the full repo once** (npx or clone); Starter Packs are curated lists to help you **pick which skills to use** by role (e.g. Web Wizard, Hacker Pack)—they are not a different way to install.
-
-### 1. Install the Repo
-
-**Option A — npx (easiest):**
-
-```bash
-npx antigravity-awesome-skills
+### VS Code
+```
+Extensions (Ctrl+Shift+X) → "GitHub Copilot" → Install
+Also install: "GitHub Copilot Chat"
 ```
 
-This clones to `~/.agent/skills` by default. Use `--cursor`, `--claude`, `--gemini`, or `--codex` to install for a specific tool, or `--path <dir>` for a custom location. Run `npx antigravity-awesome-skills --help` for details.
-
-If you see a 404 error, use: `npx github:sickn33/antigravity-awesome-skills`
-
-**Option B — git clone:**
-
+### CLI
 ```bash
-# Universal (works for most agents)
-git clone https://github.com/sickn33/antigravity-awesome-skills.git .agent/skills
+npm install -g @githubnext/github-copilot-cli
+gh auth login
 ```
 
-### 2. Pick Your Persona
+---
 
-Find the bundle that matches your role (see [BUNDLES.md](BUNDLES.md)):
+## Activate
 
-| Persona               | Bundle Name    | What's Inside?                                    |
-| :-------------------- | :------------- | :------------------------------------------------ |
-| **Web Developer**     | `Web Wizard`   | React Patterns, Tailwind mastery, Frontend Design |
-| **Security Engineer** | `Hacker Pack`  | OWASP, Metasploit, Pentest Methodology            |
-| **Manager / PM**      | `Product Pack` | Brainstorming, Planning, SEO, Strategy            |
-| **Everything**        | `Essentials`   | Clean Code, Planning, Validation (The Basics)     |
+```
+Ctrl+Shift+P → "GitHub Copilot: Sign in"
+```
+
+Bottom status bar shows Copilot icon (✓ active).
 
 ---
 
-## 🧭 Bundles vs Workflows
+## Enable Agent Mode
 
-Bundles and workflows solve different problems:
+**This is the most important step.**
 
-- **Bundles** = curated sets by role (what to pick).
-- **Workflows** = step-by-step playbooks (how to execute).
+```
+1. Open Chat (Ctrl+Shift+I)
+2. Change dropdown from "Chat" to "Agent"
+3. Set Reasoning to "HIGH" ← CRITICAL
+```
 
-Start with bundles in [BUNDLES.md](BUNDLES.md), then run a workflow from [WORKFLOWS.md](WORKFLOWS.md) when you need guided execution.
-
-Example:
-
-> "Use **@antigravity-workflows** and run `ship-saas-mvp` for my project idea."
-
----
-
-## 🚀 How to Use a Skill
-
-Once installed, just talk to your AI naturally.
-
-### Example 1: Planning a Feature (**Essentials**)
-
-> "Use **@brainstorming** to help me design a new login flow."
-
-**What happens:** The AI loads the brainstorming skill, asks you structured questions, and produces a professional spec.
-
-### Example 2: Checking Your Code (**Web Wizard**)
-
-> "Run **@lint-and-validate** on this file and fix errors."
-
-**What happens:** The AI follows strict linting rules defined in the skill to clean your code.
-
-### Example 3: Security Audit (**Hacker Pack**)
-
-> "Use **@api-security-best-practices** to review my API endpoints."
-
-**What happens:** The AI audits your code against OWASP standards.
+```json
+// .vscode/settings.json
+{
+  "github.copilot.chat.agent.thinkingBudget": "high"
+}
+```
 
 ---
 
-## 🔌 Supported Tools
+## Set Up Instructions File
 
-| Tool            | Status          | Path              |
-| :-------------- | :-------------- | :---------------- |
-| **Claude Code** | ✅ Full Support | `.claude/skills/` |
-| **Gemini CLI**  | ✅ Full Support | `.gemini/skills/` |
-| **Codex CLI**   | ✅ Full Support | `.codex/skills/`  |
-| **Antigravity** | ✅ Native       | `.agent/skills/`  |
-| **Cursor**      | ✅ Native       | `.cursor/skills/` |
-| **Copilot**     | ⚠️ Text Only    | Manual copy-paste |
+```bash
+mkdir .github
+cat > .github/copilot-instructions.md << 'EOF'
+# Project Instructions
 
----
+## Tech Stack
+- Node.js 20 + TypeScript strict
+- Express.js + PostgreSQL + Drizzle ORM
+- Vitest + Supertest for testing
 
-## 🛡️ Trust & Safety (New in V4)
+## Standards
+- No any types
+- Test every endpoint
+- Parameterized queries only
+- Conventional commits
 
-We classify skills so you know what you're running:
-
-- 🟣 **Official**: Maintained by Anthropic/Google/Vendors (High Trust).
-- 🔵 **Safe**: Community skills that are non-destructive (Read-only/Planning).
-- 🔴 **Risk**: Skills that modify systems or perform security tests (Authorized Use Only).
-
-_Check the [Skill Catalog](../CATALOG.md) for the full list._
-
----
-
-## ❓ FAQ
-
-**Q: Do I need to install all 700+ skills?**
-A: You clone the whole repo once; your AI only _reads_ the skills you invoke (or that are relevant), so it stays lightweight. **Starter Packs** in [BUNDLES.md](BUNDLES.md) are curated lists to help you discover the right skills for your role—they don't change how you install.
-
-**Q: Can I make my own skills?**
-A: Yes! Use the **@skill-creator** skill to build your own.
-
-**Q: Is this free?**
-A: Yes, MIT License. Open Source forever.
+## Commands
+- npm run dev → development
+- npm test → all tests
+EOF
+```
 
 ---
 
-## ⏭️ Next Steps
+## Built-in Skills
 
-1. [Browse the Bundles](BUNDLES.md)
-2. [See Real-World Examples](EXAMPLES.md)
-3. [Contribute a Skill](../CONTRIBUTING.md)
+In Chat panel (`Ctrl+Shift+I`):
+
+| Skill | What it does |
+|-------|-------------|
+| `/tests` | Generate test suite |
+| `/explain` | Explain code |
+| `/fix` | Debug and fix |
+| `/doc` | Generate docs |
+| `/review` | Quality review |
+| `/new` | Scaffold file/project |
+
+**Example:**
+```
+Select function → Ctrl+Shift+I → /review
+→ Gets detailed quality analysis
+```
+
+---
+
+## First Agent Task
+
+```
+Ctrl+Shift+I → Select "Agent" mode → Reasoning: HIGH
+
+"Add rate limiting to all API endpoints:
+- 100 req/15min per IP
+- 1000 req/hour per authenticated user
+- Redis for distributed state
+- Custom error with Retry-After header
+- Full test coverage"
+```
+
+---
+
+## Enable BugBot
+
+```
+GitHub repo → Settings → GitHub Copilot → Enable
+```
+
+Every PR gets auto-reviewed + Autofix PRs for bugs found.
+
+---
+
+## /fork — Branch Your Session
+
+```
+/fork → Explore alternative approach
+Compare results, keep the best
+```
+
+---
+
+## Copilot CLI
+
+```bash
+# Explain any bash command
+gh copilot explain "awk '{print $2}' file | sort | uniq -c"
+
+# Generate a command from description
+gh copilot suggest "find all files >100MB, delete oldest 10"
+```
+
+---
+
+## Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `Tab` | Accept completion |
+| `Ctrl+→` | Accept word |
+| `Alt+]` | Next suggestion |
+| `Ctrl+Shift+I` | Copilot Chat |
+| `Esc` | Dismiss |
+
+---
+
+## Next Steps
+
+- Read [FEATURES.md](FEATURES.md) — all features
+- Read [WORKFLOWS.md](WORKFLOWS.md) — real workflows
+- Set up `.github/copilot-instructions.md`
+- Enable BugBot on your repo
