@@ -4,16 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>COPILOT | Kazi Musharraf</title>
-  <meta name="description" content="GitHub Copilot Ecosystem Mastery by Kazi Musharraf. Enterprise-grade AI orchestration and auditing.">
+  <meta name="description" content="AI-ASSISTANT-GITHUB-COPILOT: Enterprise AI orchestration & security auditing. Developed by Kazi Musharraf.">
   
-  <!-- UI UX Pro Max: Font & Style CDN -->
+  <!-- UI UX Pro Max: Spring Lime Standard CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
@@ -22,12 +21,12 @@
             mono: ['JetBrains Mono', 'monospace'],
           },
           colors: {
-            gh: {
-              blue: '#0EA5E9',
-              dark: '#030617',
-              slate: '#1E293B',
-              border: '#334155',
-              surface: '#0F172A',
+            lime: {
+              primary: '#84CC16',
+              secondary: '#BEF264',
+              light: '#F7FEE7',
+              deep: '#1A2E05',
+              bg: '#FFFFFF',
             }
           }
         }
@@ -36,231 +35,188 @@
   </script>
 
   <style>
-    body { background-color: #030617; color: #F8FAFC; }
-    .glass-bento {
-      background: rgba(15, 23, 42, 0.7);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+    body { background-color: #FFFFFF; color: #1A2E05; overflow-x: hidden; }
+    .glass-lime {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(132, 204, 22, 0.1);
+      box-shadow: 0 10px 30px rgba(132, 204, 22, 0.05);
     }
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: auto;
-      gap: 1.5rem;
+    .lime-gradient {
+      background: linear-gradient(135deg, #84CC16 0%, #BEF264 100%);
     }
-    .bento-item {
-      padding: 2.5rem;
-      border-radius: 2rem;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      background: rgba(30, 41, 59, 0.3);
-      transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    .grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(132, 204, 22, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(132, 204, 22, 0.05) 1px, transparent 1px);
     }
-    .bento-item:hover {
-      background: rgba(30, 41, 59, 0.5);
-      border-color: rgba(14, 165, 233, 0.3);
-      transform: scale(1.02);
-    }
-    .blue-glow {
-      box-shadow: 0 0 40px rgba(14, 165, 233, 0.1);
-    }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #030617; }
-    ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+    .bento-item { transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .bento-item:hover { transform: scale(1.02); box-shadow: 0 25px 60px rgba(132, 204, 22, 0.1); }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #FFFFFF; }
+    ::-webkit-scrollbar-thumb { background: #84CC16; border-radius: 10px; }
   </style>
 </head>
 
-<body class="font-sans selection:bg-gh-blue selection:text-white">
+<body class="font-sans selection:bg-lime-primary selection:text-white">
 
-  <!-- ─── HEADER ─── -->
-  <header class="py-12 px-6 flex items-center justify-between max-w-7xl mx-auto">
+  <div class="fixed inset-0 grid-pattern -z-10"></div>
+
+  <!-- ─── NAV ─── -->
+  <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-7xl z-50 glass-lime rounded-2xl px-10 py-5 flex items-center justify-between border-b-2 border-lime-primary/20">
     <div class="flex items-center gap-4">
-      <div class="w-10 h-10 rounded-xl bg-gh-blue flex items-center justify-center shadow-lg shadow-gh-blue/20">
+      <div class="w-10 h-10 rounded-xl lime-gradient flex items-center justify-center shadow-lg shadow-lime-200">
         <i data-lucide="github" class="text-white w-6 h-6"></i>
       </div>
-      <span class="font-heading font-bold text-xl uppercase tracking-widest text-white">Copilot <span class="text-gh-blue">Pro</span></span>
+      <span class="font-heading font-black text-2xl tracking-tighter text-lime-deep uppercase">Copilot</span>
     </div>
 
-    <div class="hidden md:flex items-center gap-8 text-[11px] font-bold tracking-[0.2em] text-gh-blue uppercase">
-      <a href="#mastery" class="hover:text-white transition-colors">Mastery</a>
-      <a href="#bugbot" class="hover:text-white transition-colors">BugBot</a>
-      <a href="#setup" class="hover:text-white transition-colors">Integration</a>
+    <div class="hidden md:flex items-center gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-lime-deep/40">
+      <a href="#audit" class="hover:text-lime-primary transition-all">Audit</a>
+      <a href="#mastery" class="hover:text-lime-primary transition-all">Mastery</a>
+      <a href="#setup" class="hover:text-lime-primary transition-all">Integration</a>
     </div>
 
     <div class="flex items-center gap-6">
-      <span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest hidden lg:block">By Kazi Musharraf</span>
-      <a href="https://github.com/mk-knight23/AI-ASSISTANT-GITHUB-COPILOT" target="_blank" class="p-2 border border-white/5 rounded-xl hover:bg-white/5 transition-all">
-        <i data-lucide="external-link" class="w-5 h-5"></i>
+      <div class="hidden sm:block text-right leading-none">
+        <p class="text-[8px] font-mono text-lime-deep/30 uppercase tracking-[0.2em] mb-1">Architect</p>
+        <p class="text-xs font-heading font-black text-lime-deep uppercase tracking-tighter">Kazi Musharraf</p>
+      </div>
+      <a href="https://github.com/mk-knight23/AI-ASSISTANT-GITHUB-COPILOT" target="_blank" class="w-11 h-11 glass-lime rounded-xl flex items-center justify-center hover:bg-lime-50 transition-all">
+        <i data-lucide="external-link" class="w-5 h-5 text-lime-deep"></i>
       </a>
     </div>
-  </header>
+  </nav>
 
   <!-- ─── HERO ─── -->
-  <section class="py-24 px-6 text-center max-w-5xl mx-auto">
-    <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-gh-blue/20 bg-gh-blue/5 mb-10">
-      <i data-lucide="shield-check" class="text-gh-blue w-4 h-4"></i>
-      <span class="text-[10px] font-mono font-bold tracking-widest text-gh-blue uppercase">60M Reviews Strong | April 2026 Edition</span>
-    </div>
-    
-    <h1 class="text-6xl md:text-8xl font-heading font-black mb-10 leading-[1] tracking-tight text-white uppercase">
-      Audited <br> <span class="text-gh-blue">Intelligence.</span>
-    </h1>
-    
-    <p class="text-lg md:text-xl text-slate-400 font-light leading-relaxed max-w-2xl mx-auto mb-16">
-      The gold standard of enterprise AI orchestration. Developed by <span class="text-white font-medium">Kazi Musharraf</span>, this ecosystem focuses on modularity, security, and zero-defect delivery.
-    </p>
-
-    <div class="flex flex-wrap items-center justify-center gap-6 mb-24">
-      <a href="#setup" class="bg-gh-blue text-white px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-[0_0_30px_rgba(14,165,233,0.3)] transition-all">
-        Deploy To Production
-      </a>
-      <a href="#mastery" class="text-white font-bold flex items-center gap-2 hover:gap-4 transition-all">
-        Explore Rules <i data-lucide="arrow-right" class="w-5 h-5"></i>
-      </a>
-    </div>
-  </section>
-
-  <!-- ─── BENTO GALLERY ─── -->
-  <section id="mastery" class="py-24 px-6">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-auto gap-6">
-        
-        <!-- Large Block: System Design -->
-        <div class="md:col-span-2 md:row-span-2 bento-item blue-glow flex flex-col justify-between">
-          <div>
-            <div class="w-14 h-14 rounded-2xl bg-gh-blue/10 flex items-center justify-center mb-8 text-gh-blue">
-              <i data-lucide="layout-grid" class="w-8 h-8"></i>
-            </div>
-            <h4 class="text-3xl font-heading font-bold text-white mb-6">System Design Mastering</h4>
-            <p class="text-slate-400 leading-relaxed font-light italic mb-8">Analyze complex services and propose modular decompositions with domain, infrastructure, and interface layers.</p>
-          </div>
-          <div class="space-y-3 font-mono text-xs opacity-50">
-            <div class="flex justify-between items-center bg-gh-dark p-3 rounded-xl">
-              <span>Domain Partitioning</span>
-              <span class="text-gh-blue">CALCULATED</span>
-            </div>
-            <div class="flex justify-between items-center bg-gh-dark p-3 rounded-xl">
-              <span>Failure Point Analysis</span>
-              <span class="text-gh-blue">SECURE</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Medium Block: BugBot -->
-        <div class="md:col-span-2 bento-item bg-gh-blue/5 border-gh-blue/20">
-          <div class="flex items-start justify-between">
-            <div>
-              <h4 class="text-xl font-heading font-bold text-white mb-2">BugBot Autonomous</h4>
-              <p class="text-slate-500 font-light text-sm italic">Continuous PR auditing and security scanning enabled.</p>
-            </div>
-            <div class="w-10 h-10 rounded-full bg-gh-blue/20 flex items-center justify-center text-gh-blue">
-              <i data-lucide="shield-alert" class="w-5 h-5"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- Small Block: Slash Commands -->
-        <div class="bento-item">
-          <i data-lucide="slash" class="text-gh-blue w-6 h-6 mb-4"></i>
-          <h5 class="text-sm font-bold uppercase tracking-widest text-slate-500 mb-2">Slash Logic</h5>
-          <p class="text-xs font-mono text-white/60">/tests, /fix, /rev</p>
-        </div>
-
-        <!-- Small Block: Hooks -->
-        <div class="bento-item">
-          <i data-lucide="anchor" class="text-gh-blue w-6 h-6 mb-4"></i>
-          <h5 class="text-sm font-bold uppercase tracking-widest text-slate-500 mb-2">Hook Poly</h5>
-          <p class="text-xs font-mono text-white/60">onSessionEnd, prePush</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── CLI SECTION ─── -->
-  <section class="py-32 px-6 bg-gh-surface/30">
-    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
-      <div class="lg:w-1/2">
-        <h2 class="text-sm font-mono font-bold tracking-[0.4em] uppercase text-gh-blue mb-6">Terminal Mastery</h2>
-        <h3 class="text-4xl md:text-5xl font-heading font-black text-white mb-8">Integrated <br> CLI Power.</h3>
-        <p class="text-slate-400 font-light text-lg mb-10 italic">Seamlessly transition between the editor and the shell with direct GH Copilot CLI integration.</p>
-        
-        <div class="space-y-6">
-          <div class="flex items-center gap-4">
-            <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center"><i data-lucide="terminal" class="w-4 h-4 text-gh-blue"></i></div>
-            <span class="text-white/80 font-medium">gh copilot suggest</span>
-          </div>
-          <div class="flex items-center gap-4">
-            <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center"><i data-lucide="help-circle" class="w-4 h-4 text-gh-blue"></i></div>
-            <span class="text-white/80 font-medium">gh copilot explain</span>
-          </div>
-        </div>
+  <section class="pt-64 pb-32 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col items-center text-center">
+      <div class="bg-lime-100 text-lime-700 px-5 py-2 rounded-full font-bold text-[10px] uppercase tracking-[0.4em] mb-12 border border-lime-200 shadow-sm">
+        Enterprise Standard | 2026 Edition
       </div>
       
-      <div class="lg:w-1/2 w-full glass-bento p-10 rounded-[3rem] border border-white/5">
-        <div class="font-mono text-sm space-y-4">
-          <div class="flex items-center gap-3">
-            <span class="text-gh-blue">$</span>
-            <span class="text-white">gh copilot suggest "git push force safely"</span>
+      <h1 class="text-6xl md:text-[8rem] font-heading font-black text-lime-deep leading-[0.85] tracking-tighter uppercase mb-12">
+        Audited <br> <span class="italic text-transparent bg-clip-text bg-gradient-to-r from-lime-500 to-emerald-600">Precision.</span>
+      </h1>
+      
+      <p class="max-w-3xl text-xl md:text-2xl text-lime-deep/40 font-light leading-relaxed mb-20 italic">
+        The ultimate enterprise orchestration layer for high-visibility engineering. Securely developed and audited by <span class="text-lime-deep font-bold border-b-4 border-lime-primary">Kazi Musharraf</span>.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-10 mb-32">
+        <a href="#setup" class="lime-gradient text-white px-12 py-6 rounded-2xl font-black text-2xl hover:scale-105 transition-all shadow-xl shadow-lime-300 uppercase italic">
+          Deploy Hub
+        </a>
+        <a href="#audit" class="text-lime-deep font-black text-xl flex items-center gap-4 group italic px-6">
+          System Specs <i data-lucide="arrow-right" class="w-6 h-6 group-hover:translate-x-2 transition-transform"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BENTO AUDIT ─── -->
+  <section id="audit" class="py-32 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6 h-auto md:h-[700px]">
+        
+        <!-- Large Card -->
+        <div class="md:col-span-2 md:row-span-2 glass-lime p-12 rounded-[3.5rem] flex flex-col justify-between border border-lime-100 bento-item">
+          <div>
+            <div class="w-16 h-16 rounded-3xl bg-lime-50 flex items-center justify-center mb-10 text-lime-primary shadow-inner">
+              <i data-lucide="shield-check" class="w-8 h-8"></i>
+            </div>
+            <h4 class="text-4xl font-heading font-black text-lime-deep mb-6 uppercase italic">BugBot Dashboard</h4>
+            <p class="text-lg text-lime-deep/40 font-light leading-relaxed italic mb-8">Continuous PR auditing and security scanning. Every commit is cross-referenced against 60M successful deployments.</p>
           </div>
-          <div class="p-6 bg-gh-dark rounded-2xl border border-gh-blue/10">
-            <p class="text-slate-500 mb-2 italic"># Suggested Command:</p>
-            <p class="text-white">git push --force-with-lease</p>
-            <p class="mt-4 text-[10px] uppercase tracking-widest text-gh-blue font-black">Confidence: 99.8%</p>
+          <div class="space-y-4">
+            <div class="w-full h-2 bg-lime-50 rounded-full overflow-hidden"><div class="w-4/5 h-full bg-lime-primary"></div></div>
+            <div class="flex justify-between text-[10px] font-black uppercase text-lime-primary tracking-widest">
+              <span>Security Score: 98%</span>
+              <span>Audited</span>
+            </div>
           </div>
         </div>
+
+        <!-- Medium Card -->
+        <div class="md:col-span-2 glass-lime p-12 rounded-[3.5rem] bento-item border border-lime-100 flex items-center gap-10">
+          <div class="w-20 h-20 rounded-full lime-gradient flex items-center justify-center text-white shrink-0">
+            <i data-lucide="terminal" class="w-10 h-10"></i>
+          </div>
+          <div>
+            <h4 class="text-2xl font-heading font-black text-lime-deep mb-2 uppercase italic">CLI Mastery</h4>
+            <p class="text-sm text-lime-deep/40 italic">Global search, refactor, and documentation via the unified terminal interface.</p>
+          </div>
+        </div>
+
+        <!-- Small Card 1 -->
+        <div class="glass-lime p-10 rounded-[3.5rem] bento-item border border-lime-100 flex flex-col items-center text-center justify-center">
+          <i data-lucide="layers" class="text-lime-primary w-10 h-10 mb-6"></i>
+          <span class="text-[10px] font-black uppercase tracking-[0.3em] text-lime-deep">Modular</span>
+        </div>
+
+        <!-- Small Card 2 -->
+        <div class="glass-lime p-10 rounded-[3.5rem] bento-item border border-lime-100 flex flex-col items-center text-center justify-center">
+          <i data-lucide="cpu" class="text-lime-primary w-10 h-10 mb-6"></i>
+          <span class="text-[10px] font-black uppercase tracking-[0.3em] text-lime-deep">Quantum</span>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- ─── SETUP ─── -->
-  <section id="setup" class="py-32 px-6 text-center">
-    <div class="max-w-3xl mx-auto">
-      <h3 class="text-4xl md:text-6xl font-heading font-black mb-12 uppercase tracking-tighter">Ready for <span class="italic font-light">Scale</span>?</h3>
+  <section id="setup" class="py-32 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-5xl md:text-[6rem] font-heading font-black text-lime-deep mb-16 tracking-tighter uppercase whitespace-nowrap italic">Ready to <span class="text-lime-primary underline decoration-lime-200 decoration-8 underline-offset-[12px]">Ship?</span></h3>
       
-      <div class="bg-gh-surface p-2 rounded-3xl mb-12 flex items-center border border-white/10 shadow-2xl">
-        <div class="flex-1 text-left font-mono py-5 px-8 text-gh-blue overflow-x-auto whitespace-nowrap scrollbar-hide text-lg">
-          code --install-extension GitHub.copilot
+      <div class="w-full glass-lime p-5 rounded-[2.5rem] mb-12 flex flex-col md:flex-row items-center gap-6 group overflow-hidden border border-lime-200/50">
+        <div class="absolute inset-0 lime-gradient opacity-0 group-hover:opacity-5 transition-all"></div>
+        <div class="flex-1 font-mono text-xl py-6 px-10 text-lime-deep overflow-x-auto whitespace-nowrap scrollbar-hide">
+          npx copilot-mastery@2026 install --enterprise
         </div>
-        <button class="bg-gh-blue hover:bg-gh-blue/80 text-white px-8 py-5 rounded-[1.2rem] font-bold transition-all flex items-center gap-2">
-          <i data-lucide="package" class="w-5 h-5"></i>
+        <button class="lime-gradient text-white px-14 py-6 rounded-3xl font-black text-xl shadow-xl transition-all hover:scale-105 active:scale-95 uppercase italic">
+          Initialize
         </button>
       </div>
 
-      <div class="flex flex-wrap justify-center gap-8 text-[11px] font-bold tracking-[0.3em] text-slate-500 uppercase">
-        <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gh-blue"></i> Enterprise Validated</span>
-        <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gh-blue"></i> Policy-Aware</span>
-        <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gh-blue"></i> Agent First</span>
+      <div class="flex flex-wrap justify-center gap-10 text-[11px] font-black tracking-[0.4em] text-lime-deep/20 uppercase italic">
+        <div class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-lime-primary"></i> SOC2 Compliant</div>
+        <div class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-lime-primary"></i> Zero Latency</div>
+        <div class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-lime-primary"></i> Policy Aware</div>
       </div>
     </div>
   </section>
 
   <!-- ─── FOOTER ─── -->
-  <footer class="py-24 px-6 border-t border-white/5">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-16 text-slate-500">
+  <footer class="py-24 px-6 border-t border-lime-100 bg-white">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-16">
       <div class="text-center md:text-left">
-        <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
-          <div class="w-10 h-10 rounded-xl bg-gh-blue flex items-center justify-center shadow-lg"><i data-lucide="github" class="w-5 h-5 text-white"></i></div>
-          <span class="font-heading font-bold text-xl text-white uppercase tracking-widest">COPILOT</span>
+        <div class="flex items-center justify-center md:justify-start gap-4 mb-6">
+          <div class="w-10 h-10 rounded-xl lime-gradient flex items-center justify-center shadow-lg"><i data-lucide="github" class="w-6 h-6 text-white"></i></div>
+          <span class="font-heading font-black text-2xl text-lime-deep uppercase tracking-tighter italic">COPILOT</span>
         </div>
-        <p class="text-[10px] font-mono uppercase tracking-[0.4em] mb-2 font-black">Engineered for Reliability</p>
-        <p class="text-xs font-light max-w-xs">An ecosystem showcase for GitHub Copilot's advanced agentic capabilities in the Year 2026.</p>
+        <p class="text-[10px] text-lime-deep/30 font-bold uppercase tracking-[0.6em] mb-4">Enterprise Reliability Hub</p>
+        <p class="text-xs text-lime-deep/40 font-light max-w-xs italic italic">A bright, industrial-grade showcase for GitHub Copilot's agentic future. Crafted for clarity and high-visibility performance.</p>
       </div>
 
       <div class="flex flex-col items-center">
-        <div class="flex gap-10 mb-10">
-          <a href="#" class="hover:text-white transition-all"><i data-lucide="twitter" class="w-6 h-6"></i></a>
-          <a href="https://github.com/mk-knight23" class="hover:text-white transition-all"><i data-lucide="github" class="w-6 h-6"></i></a>
-          <a href="#" class="hover:text-white transition-all"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+        <div class="flex gap-12 mb-10">
+          <a href="#" class="text-lime-200 hover:text-lime-primary transition-all scale-125"><i data-lucide="twitter" class="w-6 h-6"></i></a>
+          <a href="https://github.com/mk-knight23" class="text-lime-200 hover:text-lime-primary transition-all scale-125"><i data-lucide="github" class="w-6 h-6"></i></a>
+          <a href="#" class="text-lime-200 hover:text-lime-primary transition-all scale-125"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
         </div>
-        <p class="text-[10px] uppercase tracking-[0.6em] font-heading font-bold">
-          SHOWCASE BY <span class="text-gh-blue">KAZI MUSHARRAF</span>
-        </p>
+        <div class="px-10 py-3 bg-white border border-lime-100 rounded-2xl shadow-sm">
+            <p class="text-[10px] uppercase tracking-[0.8em] font-heading font-black text-lime-deep leading-none">
+              ORCHESTRATED BY <span class="text-lime-primary italic">KAZI MUSHARRAF</span>
+            </p>
+        </div>
       </div>
 
-      <div class="text-xs text-center md:text-right font-light italic">
-        "Trust the review, own the result." <br>
-        &copy; 2026 Enterprise AI Collective.
+      <div class="text-[10px] font-mono text-lime-deep/30 text-center md:text-right">
+        &copy; 2026 ENTERPRISE_COLLECTIVE <br>
+        SYSTEM_ID: LIME_88
       </div>
     </div>
   </footer>
@@ -271,13 +227,13 @@
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('opacity-100', 'translate-x-0', 'translate-y-0');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
         }
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.bento-item, h1, h3, .glass-bento').forEach(el => {
-      el.classList.add('transition-all', 'duration-[1200ms]', 'opacity-0', 'translate-y-10');
+    document.querySelectorAll('.bento-item, h1, h3, .glass-lime').forEach(el => {
+      el.classList.add('transition-all', 'duration-[1000ms]', 'opacity-0', 'translate-y-12');
       observer.observe(el);
     });
   </script>
